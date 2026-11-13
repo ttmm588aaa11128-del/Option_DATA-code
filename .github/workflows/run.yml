@@ -53,7 +53,11 @@ jobs:
 
       - name: Install packages
         run: |
-          pip install selenium pandas openpyxl webdriver-manager lxml
+            sudo apt-get update
+            sudo apt-get install -y wget curl unzip libxi6 libgconf-2-4 libnss3 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libasound2
+            sudo wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+            pip install selenium pandas openpyxl webdriver-manager lxml
 
       - name: Run script
         run: python Get_Option_Data.py
